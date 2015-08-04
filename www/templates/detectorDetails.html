@@ -1,0 +1,28 @@
+<ion-view view-title="{{selected.DetectorName}}">
+  <ion-content style="text-align: center">
+      <h4>{{selected.DetectorName}}</h4>
+      <br>
+      <img ng-src="{{selected.image}}">
+      <br>
+      <img ng-src="{{selected.typeImage}}">
+      <h4>Details</h4>
+      <p>System Cost: {{selected.sysCost}}</p>
+      <p>Analysis Cost: {{selected.anaCost}}</p>
+      <p>Survey Source: {{selected.surveySource}}</p>
+      <p>Contact: {{selected.contact}}</p>
+      <p>{{selected.email}}</p>
+      <p>{{selected.url}}</p>
+      <p>User Rating: {{selected.userRating}}</p>
+      <h4>Description</h4>
+      <p>{{selected.Description}}</p>
+      <h4>Technical Description</h4>
+      <p>{{selected.techDescription}}</p>
+      <br>
+      <p>{{selected.notes}}</p>
+      <img style="width:80%;" ng-src="{{selected.scoreImage}}">
+      <br>
+      <br>
+      <br>
+      <img style="width:80%;" ng-src="{{selected.impactImage}}">
+  </ion-content>
+</ion-view>
