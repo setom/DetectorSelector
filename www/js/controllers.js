@@ -128,7 +128,33 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services'])
     };
 })
 
-.controller('DetectorDetailsCtrl', function($scope, $stateParams) {
-   
+.controller('DetectorDetailsCtrl', function($scope, $rootScope, $stateParams) {
+    
+    //set the proper rad/chem/bio image
+    switch($rootScope.selected.type){
+        case "bio":
+            $scope.typeImage = "lib/detectorData/img/type-1.png";
+            break;
+        case "chem":
+            $scope.typeImage = "lib/detectorData/img/type-2.png";
+            break;
+        case "rad":
+            $scope.typeImage = "lib/detectorData/img/type-3.png";
+            break;
+        case "bio & chem":
+            $scope.typeImage = "lib/detectorData/img/type-4.png";
+            break;
+        case "bio & rad":
+            //no current detectors for this scenario, no image avail
+            break;
+        case "bio & chem & rad":
+            $scope.typeImage = "lib/detectorData/img/type-6.png";
+            break;
+        case "chem & rad":
+            $scope.typeImage = "lib.detectorData/img/type-7.png";
+            break;
+        default:
+            $scope.typeImage = null;
+    }
 
 });

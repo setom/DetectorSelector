@@ -4,15 +4,22 @@
       <br>
       <img ng-src="{{selected.image}}">
       <br>
-      <img ng-src="{{selected.typeImage}}">
-      <h4>Details</h4>
-      <p>System Cost: {{selected.sysCost}}</p>
-      <p>Analysis Cost: {{selected.anaCost}}</p>
-      <p>Survey Source: {{selected.surveySource}}</p>
-      <p>Contact: {{selected.contact}}</p>
-      <p>{{selected.email}}</p>
-      <p>{{selected.url}}</p>
-      <p>User Rating: {{selected.userRating}}</p>
+      <img ng-src="{{typeImage}}">
+      <div class="detectorSmallDetails">
+          <div class="row">
+              <div class="col">
+                <p>System Cost: {{selected.sysCost}}</p>
+                <p>Analysis Cost: {{selected.anaCost}}</p>
+              </div>
+              <div class="col">
+                <p>Survey Source: {{selected.surveySource}}</p>
+                <p>Contact: {{selected.contact}}</p>
+                <p>{{selected.email}}</p>
+                <p>{{selected.url}}</p>
+              </div>
+          </div>
+          <p>User Rating: {{selected.userRating}}</p>
+      </div>
       <h4>Description</h4>
       <p>{{selected.Description}}</p>
       <h4>Technical Description</h4>
@@ -25,4 +32,5 @@
       <br>
       <img style="width:80%;" ng-src="{{selected.impactImage}}">
   </ion-content>
+
 </ion-view>
