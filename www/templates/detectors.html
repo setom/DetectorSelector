@@ -1,6 +1,7 @@
 <ion-view view-title="Detectors">
   <ion-content>
       <h3>Search results: </h3>
+      <input style=" width: 100%; text-align: center; border: solid 1px #808080;" type="text" placeholder="Refine Search" ng-model="searchName">
       <ion-list>
           <!--
           <ion-item ng-repeat="detector in detectors | filter:{scenario:userScenario}" ng-Click="goDetails(detector)">
@@ -10,7 +11,7 @@
               <h3>{{detector.DetectorName}}</h3>
           </ion-item>
           -->
-        <ion-item ng-repeat="detector in detectors" ng-Click="goDetails(detector)">
+        <ion-item ng-repeat="detector in detectors | filter:searchName" ng-Click="goDetails(detector)">
             <h3>{{detector.DetectorName}}</h3>
         </ion-item>
       </ion-list>
