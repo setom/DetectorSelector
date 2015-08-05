@@ -1,4 +1,4 @@
-angular.module('DetectorSelector.controllers', ['DetectorSelector.services'])
+angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ngSanitize'])
 
 .controller('MenuCtrl', function($scope, $state){
 
@@ -94,19 +94,21 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services'])
             } 
         }
         //if the user is searching by scenario, then the type is .
+        //**** Note, the scenario doesn't actually filter results, rather, it
+        //**** sorts the results piling the desired scenario at the top
         else if($rootScope.userType === '.'){
             //set the detectors depending on the userType selected
             if($rootScope.userScenario === 'field'){
-
+                $scope.detectors = $filter('orderBy')(dets, ["bioFieldTier", "chemFieldTier", "radFieldTier"]);
             }
             else if ($rootScope.userScenario === 'mobile'){
-
+                $scope.detectors = $filter('orderBy')(dets, ["bioMobDTier", "chemMobTier", "radMobTier"]);
             }
             else if ($rootScope.userScenario === 'diagnostic'){
-
+                $scope.detectors = $filter('orderBy')(dets, ["bioDiagTier", "chemDiagTier", "radDiagTier"]);
             }
             else if ($rootScope.userScenario === 'analytic'){
-
+                $scope.detectors = $filter('orderBy')(dets, ["bioAnalTier", "chemAnalTier", "radAnalTier"]);
             }
             else {
                 //default to show ALL detectors

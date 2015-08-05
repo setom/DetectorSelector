@@ -7712,3 +7712,11 @@ a.button {
   width: 100%;
   background: url("../lib/detectorData/img/menu_background.jpg") no-repeat;
   background-size: 100% 100%; }
+
+.detectorLargeDetails {
+  padding: 8px;
+  margin: 8px;
+  text-align: justify; }
+
+.techDescription ul li {
+  list-style-type: circle; }

@@ -1,4 +1,4 @@
-angular.module('DetectorSelector.services', [])
+angular.module('DetectorSelector.services', ['ngSanitize'])
 
 .factory('DetectorFactory', function($q, $http){
         

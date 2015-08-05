@@ -1,22 +1,42 @@
 <ion-view view-title="Detector Selector">
   <ion-content style="text-align: center">  
       <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <img src="lib/detectorData/img/home_icon.jpg" style="height:100px; opacity: 0.7;">
 
-    <button class="button button-block button-positive" ng-click="goType('biological')">
-        <img src="lib/detectorData/img/type-1.png" style="height: 25px">
-        Biological
-    </button>
-    <button class="button button-block button-positive" ng-click="goType('chemical')">
-        <img src="lib/detectorData/img/type-2.png" style="height: 25px">
-        Chemical
-    </button>
-    <button class="button button-block button-positive" ng-click="goType('radiological')">
-        <img src="lib/detectorData/img/type-3.png" style="height: 25px">
-        Radiological
-    </button>
-    <!--button class="button button-block button-positive" ng-click="goType('')">
-        <img src="lib/detectorData/img/type-6.png" style="height: 25px">
-        Multi-Purpose
-    </button-->      
-  </ion-content>
+    </ion-content>
+    
+    <hr>
+      <div class="searchOptions">
+            <h4>SELECT TYPE</h4>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-clear button-assertive" ng-click="goType('biological')">
+                        <img src="lib/detectorData/img/bioicon.png" style="height: 40px">
+                    </button>
+                    <br>
+                    <p>Biological</p>
+                </div>
+                <div class="col">
+                    <button class="button button-clear button-assertive" ng-click="goType('chemical')">
+                        <img src="lib/detectorData/img/chemicon.png" style="height: 40px">
+                    </button>
+                    <br>
+                    <p>Chemical</p>
+                </div>
+                <div class="col">
+                    <button class="button button-clear button-assertive" ng-click="goType('radiological')">
+                        <img src="lib/detectorData/img/radicon.png" style="height: 40px">
+                    </button>
+                    <br>
+                    <p>Radiological</p>
+                </div>
+            </div>
+            <hr style="color: orangered">
+      </div>
+    <ion-footer-bar class="bar-stable"></ion-footer-bar>
 </ion-view>
