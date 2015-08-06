@@ -1,38 +1,41 @@
-<ion-view view-title="{{selected.DetectorName}}">
-  <ion-content style="text-align: center">
-      <h4>{{selected.DetectorName}}</h4>
-      <!--img ng-src="{{selected.image}}"-->
-      <img ng-src ="lib/detectorData/img/306/306.jpg">
-      <br>
-      <img ng-src="{{typeImage}}" style="width: 30%;">
-      <div class="detectorSmallDetails">
-          <div class="row">
-              <div class="col">
-                <p>System Cost: {{selected.sysCost | currency:"$"}}</p>
-                <p>Analysis Cost: {{selected.anaCost | currency: "$"}}</p>
-              </div>
-              <div class="col">
-                <p>Survey Source: {{selected.surveySource}}</p>
-                <p>Contact: {{selected.contact}}</p>
-                <p>{{selected.email}}</p>
-                <p>{{selected.url}}</p>
-              </div>
-          </div>
-          <p>User Rating: {{selected.userRating}}</p>
-      </div>
+<ion-view>
+    <ion-nav-title>
+        <span style="color: whitesmoke;">{{selected.DetectorName}}</span>
+    </ion-nav-title>
+    <ion-content style="text-align: center">
+        <h4>{{selected.DetectorName}}</h4>
+        <!--img ng-src="{{selected.image}}"-->
+        <img ng-src ="lib/detectorData/img/306/306.jpg">
+        <br>
+        <img ng-src="{{typeImage}}" style="width: 30%;">
+        <div class="detectorSmallDetails">
+            <div class="row">
+                <div class="col">
+                    <p>System Cost: {{selected.sysCost| currency:"$"}}</p>
+                    <p>Analysis Cost: {{selected.anaCost| currency: "$"}}</p>
+                </div>
+                <div class="col">
+                    <p>Survey Source: {{selected.surveySource}}</p>
+                    <p>Contact: {{selected.contact}}</p>
+                    <p>{{selected.email}}</p>
+                    <p>{{selected.url}}</p>
+                </div>
+            </div>
+            <p>User Rating: {{selected.userRating}}</p>
+        </div>
         <div class="detectorLargeDetails">
-        <h4 style="text-align: left;"><b>Description</b></h4>
-        <p ng-bind-html="selected.Description" class="techDescription"></p>
-        <h4 style="text-align: left;"><b>Technical Description</b></h4>
-        <p ng-bind-html="selected.techDescription"class="techDescription"></p>
-        <br>
-        <p>{{selected.notes}}</p>
-        <img style="width:80%;" ng-src="{{selected.scoreImage}}">
-        <br>
-        <br>
-        <br>
-        <img style="width:80%;" ng-src="{{selected.impactImage}}">
-      </div>
-  </ion-content>
+            <h4 style="text-align: left;"><b>Description</b></h4>
+            <p ng-bind-html="selected.Description" class="techDescription"></p>
+            <h4 style="text-align: left;"><b>Technical Description</b></h4>
+            <p ng-bind-html="selected.techDescription"class="techDescription"></p>
+            <br>
+            <p>{{selected.notes}}</p>
+            <img style="width:80%;" ng-src="{{selected.scoreImage}}">
+            <br>
+            <br>
+            <br>
+            <img style="width:80%;" ng-src="{{selected.impactImage}}">
+        </div>
+    </ion-content>
 
 </ion-view>

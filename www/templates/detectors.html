@@ -1,19 +1,30 @@
-<ion-view view-title="Detectors">
-  <ion-content>
-      <h3>Search results: </h3>
-      <input style=" width: 100%; text-align: center; border: solid 1px #808080;" type="text" placeholder="Refine Search" ng-model="searchName">
-      <ion-list>
-          <!--
-          <ion-item ng-repeat="detector in detectors | filter:{scenario:userScenario}" ng-Click="goDetails(detector)">
-              <h3>{{detector.DetectorName}}</h3>
-          </ion-item>
-          <ion-item ng-repeat="detector in detectors | filter:{type:userType}" ng-Click="goDetails(detector)">
-              <h3>{{detector.DetectorName}}</h3>
-          </ion-item>
-          -->
-        <ion-item ng-repeat="detector in detectors | filter:searchName" ng-Click="goDetails(detector)">
-            <h3>{{detector.DetectorName}}</h3>
-        </ion-item>
-      </ion-list>
-  </ion-content>
+<!--ion-view view-title="Detectors"-->
+<ion-view>
+    <ion-nav-title>
+        <span style="color: whitesmoke;">Detectors</span>
+    </ion-nav-title>
+    <ion-header-bar class="bar-light bar-subheader">
+        <div style="padding-bottom: 2px;">
+            <label class="item item-input" style=" width: 100%; text-align: center;">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchName">
+            </label>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <!--h3>Search results: </h3-->
+        <ion-list>
+            <!--
+            <ion-item ng-repeat="detector in detectors | filter:{scenario:userScenario}" ng-Click="goDetails(detector)">
+                <h3>{{detector.DetectorName}}</h3>
+            </ion-item>
+            <ion-item ng-repeat="detector in detectors | filter:{type:userType}" ng-Click="goDetails(detector)">
+                <h3>{{detector.DetectorName}}</h3>
+            </ion-item>
+            -->
+            <ion-item ng-repeat="detector in detectors| filter:searchName" ng-Click="goDetails(detector)">
+                <h3>{{detector.DetectorName}}</h3>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
