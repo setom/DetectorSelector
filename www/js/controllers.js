@@ -5,6 +5,10 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
     $scope.goHome = function() {
         $state.go('app.home');
     };
+    
+    $scope.goSearch = function(){
+        $state.go('app.search');
+    };
 })
         
 .controller('HomeCtrl', function($scope, $rootScope, $state){
@@ -53,73 +57,42 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
     };
 })
 
-.controller('SearchCtrl', function($scope, DetectorFactory){
+.controller('SearchCtrl', function($scope, $rootScope, $state, DetectorFactory){
+    
+    //reset all the user selected values on instantiation of the page
+//    $rootScope.userType = null;
+//    $rootScope.userScenario = null;
+//    $rootScope.userTier = null;
+    
+    $scope.typeChange = function(ty){
+        ty = ty.toLowerCase();
+        $rootScope.userType = ty;
+    };
+    $scope.scenarioChange = function(sc){
+        sc = sc.toLowerCase();
+        $rootScope.scenario = sc;
+    };
+    $scope.tierChange = function(ti){
+        $rootScope.userTier = ti;
+    };
+    $scope.sysCostChange = function(sco){
+        sco = sco.toLowerCase();
+        sco = Number(sco.replace(/[^0-9\.]+/g,""));
+        $rootScope.sysCost = sco;
+    };
+    
+    $scope.search = function(){
+        $state.go('app.detectors');
+        console.log("Type: " + $rootScope.userType + " Tier: " + $rootScope.userTier + " Scenario: " +  $rootScope.scenario + " SysCost: " +  $rootScope.sysCost);
+        //console.log($rootScope);
+    };
 
 })
 
 .controller('DetectorsCtrl', function($scope, $state, $filter, $rootScope, DetectorFactory) {
-
-
-//    DetectorFactory.getDetectors().then(function(dets){
-//        //set the detectors depending on the userType selected
-//        if($rootScope.userType === 'biological'){
-//            $scope.detectors = $filter('filter')(dets, {type:'bio'});
-//        }
-//        else if ($rootScope.userType === 'chemical'){
-//            $scope.detectors = $filter('filter')(dets, {type:'chem'});
-//        }
-//        else if ($rootScope.userType === 'radiological'){
-//            $scope.detectors = $filter('filter')(dets, {type:'rad'});
-//        }
-//        else {
-//            //default to show ALL detectors
-//            $scope.detectors = dets;
-//        } 
-    //if the user is searching by type, then the scenario is .
-    DetectorFactory.getDetectors().then(function(dets){
-        if ($rootScope.userScenario === '.'){
-            //set the detectors depending on the userType selected
-            if($rootScope.userType === 'biological'){
-                $scope.detectors = $filter('filter')(dets, {type:'bio'});
-            }
-            else if ($rootScope.userType === 'chemical'){
-                $scope.detectors = $filter('filter')(dets, {type:'chem'});
-            }
-            else if ($rootScope.userType === 'radiological'){
-                $scope.detectors = $filter('filter')(dets, {type:'rad'});
-            }
-            else {
-                //default to show ALL detectors
-                $scope.detectors = dets;
-            } 
-        }
-        //if the user is searching by scenario, then the type is .
-        //**** Note, the scenario doesn't actually filter results, rather, it
-        //**** sorts the results piling the desired scenario at the top
-        else if($rootScope.userType === '.'){
-            //set the detectors depending on the userType selected
-            if($rootScope.userScenario === 'field'){
-                $scope.detectors = $filter('orderBy')(dets, ["bioFieldTier", "chemFieldTier", "radFieldTier"]);
-            }
-            else if ($rootScope.userScenario === 'mobile'){
-                $scope.detectors = $filter('orderBy')(dets, ["bioMobDTier", "chemMobTier", "radMobTier"]);
-            }
-            else if ($rootScope.userScenario === 'diagnostic'){
-                $scope.detectors = $filter('orderBy')(dets, ["bioDiagTier", "chemDiagTier", "radDiagTier"]);
-            }
-            else if ($rootScope.userScenario === 'analytic'){
-                $scope.detectors = $filter('orderBy')(dets, ["bioAnalTier", "chemAnalTier", "radAnalTier"]);
-            }
-            else {
-                //default to show ALL detectors
-                $scope.detectors = dets;
-            } 
-        }
-        //default show all detectors
-        else {
-            $scope.detectors = dets;
-    }
-        
+    
+    DetectorFactory.getCustomDetectors($rootScope.userType, $rootScope.userScenario, $rootScope.userTier).then(function(dets){
+        $scope.detectors = dets;
     });
     
     //go to a specific detector
