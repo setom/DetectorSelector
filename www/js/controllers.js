@@ -9,6 +9,10 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
     $scope.goSearch = function(){
         $state.go('app.search');
     };
+    
+    $scope.goAbout = function(){
+        $state.go('app.about');
+    };
 })
         
 .controller('HomeCtrl', function($scope, $rootScope, $state){
@@ -132,4 +136,8 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
             $scope.typeImage = null;
     }
 
+})
+
+.controller('AboutCtrl', function(){
+            
 });

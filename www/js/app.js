@@ -41,6 +41,16 @@ angular.module('DetectorSelector', ['ionic', 'DetectorSelector.controllers', 'De
       }
     })
     
+    .state('app.about', {
+      url: "/about",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/about.html",
+          controller: 'AboutCtrl'
+        }
+      }
+    })
+    
     .state('app.search', {
         url: "/search",
         views: {
