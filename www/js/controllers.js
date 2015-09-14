@@ -33,6 +33,10 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
         $state.go('app.type');
     };
     
+    $scope.goSearch = function(){
+        $state.go('app.search');
+    };
+    
 })
 
 .controller('ScenarioCtrl', function($scope, $rootScope, $state){
@@ -74,20 +78,20 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
     };
     $scope.scenarioChange = function(sc){
         sc = sc.toLowerCase();
-        $rootScope.scenario = sc;
+        $rootScope.userScenario = sc;
     };
-    $scope.tierChange = function(ti){
-        $rootScope.userTier = ti;
-    };
-    $scope.sysCostChange = function(sco){
-        sco = sco.toLowerCase();
-        sco = Number(sco.replace(/[^0-9\.]+/g,""));
-        $rootScope.sysCost = sco;
-    };
+//    $scope.tierChange = function(ti){
+//        $rootScope.userTier = ti;
+//    };
+//    $scope.sysCostChange = function(sco){
+//        sco = sco.toLowerCase();
+//        sco = Number(sco.replace(/[^0-9\.]+/g,""));
+//        $rootScope.sysCost = sco;
+//    };
     
     $scope.search = function(){
         $state.go('app.detectors');
-        console.log("Type: " + $rootScope.userType + " Tier: " + $rootScope.userTier + " Scenario: " +  $rootScope.scenario + " SysCost: " +  $rootScope.sysCost);
+        //console.log("Type: " + $rootScope.userType + "Scen: " + $rootScope.userScenario);
         //console.log($rootScope);
     };
 

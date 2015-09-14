@@ -18,13 +18,6 @@
         <hr>
         <div class="row">
             <div class="col">
-                <button class="button button-clear button-assertive" ng-click="goScenario('')">
-                    <img src="lib/detectorData/img/all_detectors.png" style="height: 40px">
-                </button>
-                <br>
-                <p>Browse All</p>
-            </div>
-            <div class="col">
                 <button class="button button-clear button-assertive" ng-click="searchScenario()">
                     <img src="lib/detectorData/img/scenarioIcon.png" style="height: 80px;">
                 </button>
@@ -38,7 +31,22 @@
                 <br>
                 <p>Browse by Type</p>
             </div>
+            <div class="col">
+                <button class="button button-clear button-assertive" ng-click="goSearch()">
+                    <img src="lib/detectorData/img/all_detectors.png" style="height: 40px">
+                </button>
+                <br>
+                <p>Custom Search</p>
+            </div>
         </div>
+        <div style="text-align: center;">
+            <div class="col">
+                <button class="button button-outline button-dark" ng-click="goScenario('')">
+                    Browse All
+                </button>
+            </div>
+        </div>
+        <br>
         <hr style="color: orangered">
     </div>
     <ion-footer-bar class="bar-stable"></ion-footer-bar>

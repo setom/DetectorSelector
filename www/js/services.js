@@ -46,7 +46,6 @@ angular.module('DetectorSelector.services', ['ngSanitize'])
 
             }
 
-
             //the public API
             return {
                 getDetectors: function () {

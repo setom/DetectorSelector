@@ -23,7 +23,12 @@
             </ion-item>
             -->
             <ion-item ng-repeat="detector in detectors| filter:searchName" ng-Click="goDetails(detector)">
-                <h3>{{detector.DetectorName}}</h3>
+                <div class="row">
+                    <p>{{detector.DetectorName}}</p>
+                </div>
+                <div class="row">
+                    <img style="height: 30px;" ng-src ="lib/detectorData/DetectorsImg/{{detector.DetectorID}}.jpg">
+                </div>
             </ion-item>
         </ion-list>
     </ion-content>
