@@ -22,14 +22,27 @@
                 <h3>{{detector.DetectorName}}</h3>
             </ion-item>
             -->
-            <ion-item ng-repeat="detector in detectors| filter:searchName" ng-Click="goDetails(detector)">
+            <ion-item ng-repeat="detector in detectors| filter:searchName | limitTo: totalDisplayed" ng-Click="goDetails(detector)">
                 <div class="row">
-                    <p>{{detector.DetectorName}}</p>
+                    <h2>{{detector.DetectorName}}</h2>
                 </div>
                 <div class="row">
-                    <img style="height: 30px;" ng-src ="lib/detectorData/DetectorsImg/{{detector.DetectorID}}.jpg">
+                    <div class="col">
+                        <img style="height: 30px;" ng-src ="lib/detectorData/DetectorsImg/{{detector.DetectorID}}.jpg">
+                    </div>
+                    <div class="col">
+                        <img ng-src="{{getTypeImage(detector)}}" style="width: 50%;">
+                    </div>
+                    <div class="col">
+                        <img ng-src="{{getMobImage(detector)}}" style="width:20%;">
+                        <img ng-src="{{getFieldImage(detector)}}" style="width:20%;">
+                        <img ng-src="{{getAnalImage(detector)}}" style="width:20%;">
+                        <img ng-src="{{getDiagImage(detector)}}" style="width:20%;">
+                    </div>
                 </div>
             </ion-item>
         </ion-list>
+        <ion-infinite-scroll 
+            on-infinite="addMoreItem()" distance="5%"></ion-infinite-scroll>
     </ion-content>
 </ion-view>

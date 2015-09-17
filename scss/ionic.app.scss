@@ -53,10 +53,15 @@ $stable:                          #F05A28 !default;
 .detectorLargeDetails {
         padding: 8px;
         margin: 8px;
-        text-align: justify;    
+        text-align: left;    
     }
     
 .techDescription ul li{
         list-style-type: circle;
         list-style-position: inside;
+    }
+    
+.detectorTable {
+        padding: 8px;
+        margin: 8px;
     }
