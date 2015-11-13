@@ -10,6 +10,10 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
                 $state.go('app.search');
             };
 
+            $scope.goLogin = function () {  
+                $state.go('app.login');
+            };
+            
             $scope.goAbout = function () {
                 $state.go('app.about');
             };
@@ -37,6 +41,14 @@ angular.module('DetectorSelector.controllers', ['DetectorSelector.services', 'ng
                 $state.go('app.search');
             };
 
+        })
+        
+        .controller('LoginCtrl', function($scope, $rootScope, $state) {
+            $scope.login = function(un, pw){
+                console.log("UserName: " + un);
+                console.log("Password: " + pw);
+            };
+            
         })
 
         .controller('ScenarioCtrl', function ($scope, $rootScope, $state) {

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('DetectorSelector', ['ionic', 'DetectorSelector.controllers', 'DetectorSelector.services', 'ngSanitize'])
+angular.module('DetectorSelector', ['ionic', 'DetectorSelector.controllers', 'DetectorSelector.services', 'ngSanitize', 'ngIOS9UIWebViewPatch'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -57,6 +57,16 @@ angular.module('DetectorSelector', ['ionic', 'DetectorSelector.controllers', 'De
             'menuContent':{
               templateUrl: "templates/search.html",
               controller: "SearchCtrl"
+            }
+        }
+    })
+    
+    .state('app.login', {
+        url: "/login",
+        views: {
+            'menuContent':{
+              templateUrl: "templates/login.html",
+              controller: "LoginCtrl"
             }
         }
     })
